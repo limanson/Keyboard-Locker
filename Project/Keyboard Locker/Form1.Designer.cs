@@ -25,6 +25,7 @@
             this.OpenWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TipLabel = new System.Windows.Forms.Label();
             this.ContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,14 +41,14 @@
             this.MainButton.TabIndex = 0;
             this.MainButton.Text = "Lock";
             this.MainButton.UseVisualStyleBackColor = true;
-            this.MainButton.Click += new System.EventHandler(this.MainButton_Click);
+            this.MainButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MainButton_Click);
             // 
             // WarningLabel
             // 
             this.WarningLabel.AutoSize = true;
             this.WarningLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.WarningLabel.Location = new System.Drawing.Point(40, 149);
+            this.WarningLabel.Location = new System.Drawing.Point(40, 164);
             this.WarningLabel.Name = "WarningLabel";
             this.WarningLabel.Size = new System.Drawing.Size(320, 18);
             this.WarningLabel.TabIndex = 1;
@@ -105,12 +106,25 @@
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
+            // TipLabel
+            // 
+            this.TipLabel.AutoSize = true;
+            this.TipLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TipLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TipLabel.Location = new System.Drawing.Point(22, 135);
+            this.TipLabel.Name = "TipLabel";
+            this.TipLabel.Size = new System.Drawing.Size(344, 18);
+            this.TipLabel.TabIndex = 3;
+            this.TipLabel.Text = "Quickly triple press \"Ctrl\" to lock/unlock";
+            this.TipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(384, 215);
+            this.Controls.Add(this.TipLabel);
             this.Controls.Add(this.LicenseLabel);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.MainButton);
@@ -139,6 +153,7 @@
         private System.Windows.Forms.ToolStripMenuItem LockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip ContextMenuStrip1;
+        private System.Windows.Forms.Label TipLabel;
     }
 }
 

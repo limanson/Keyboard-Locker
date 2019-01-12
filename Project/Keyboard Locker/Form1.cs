@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace Keyboard_Locker
 {
@@ -29,17 +30,41 @@ namespace Keyboard_Locker
 
         public delegate int HookHandlerDelegate(int nCode, IntPtr wparam, ref KBDLLHOOKSTRUCT lparam);
 
-        private HookHandlerDelegate m_Proc = null;
         private static readonly string LockString = "Lock";
         private static readonly string UnLockString = "UnLock";
         private static readonly Color RedColor = Color.FromKnownColor(KnownColor.OrangeRed);
         private static readonly Color GreenColor = Color.FromKnownColor(KnownColor.ForestGreen);
         private static readonly string StateMsgString = "Keyboard now is 「{0}」";
         private static readonly string BackgroundMsgString = "Background running.";
+
+        private static readonly List<int> ExceptionKeyCodeList = new List<int>{ 162, 163 };
+        private static readonly int ExceptionKeyComboCount = 3;
+        private static readonly int ExceptionKeyComboMilliseconds = 1000;
+        private int m_CurrentExceptionKeyClickCount = 0;
+        private DateTime m_ExceptionKeyFirstClickTime;
+
+        private HookHandlerDelegate m_Proc = null;
         private bool m_IsLock = false;
 
         private int HookCallback(int nCode, IntPtr wparam, ref KBDLLHOOKSTRUCT lparam)
         {
+            if (nCode >= 0 && ExceptionKeyCodeList.Contains(lparam.vkCode) )
+            {
+                m_CurrentExceptionKeyClickCount++;
+                if (m_CurrentExceptionKeyClickCount == 2)
+                {
+                    m_ExceptionKeyFirstClickTime = DateTime.Now;
+                }
+                else if (m_CurrentExceptionKeyClickCount == ExceptionKeyComboCount * 2)
+                {
+                    if ((DateTime.Now - m_ExceptionKeyFirstClickTime).TotalMilliseconds <= ExceptionKeyComboMilliseconds)
+                        MainButton_Click(null, null);
+
+                    m_CurrentExceptionKeyClickCount = 0;
+                }
+                
+            }
+
             return m_IsLock ? 1 : 0;
         }
 
@@ -61,7 +86,7 @@ namespace Keyboard_Locker
             }
         }
 
-        private void MainButton_Click(object sender, EventArgs e)
+        private void MainButton_Click(object sender, MouseEventArgs e)
         {
             m_IsLock = !m_IsLock;
             MainButton.Text = m_IsLock ? UnLockString : LockString;
@@ -100,7 +125,7 @@ namespace Keyboard_Locker
 
         private void LockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MainButton_Click(sender, e);
+            MainButton_Click(sender, null);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
