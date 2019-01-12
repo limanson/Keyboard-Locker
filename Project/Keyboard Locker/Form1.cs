@@ -55,7 +55,7 @@ namespace Keyboard_Locker
                 {
                     m_ExceptionKeyFirstClickTime = DateTime.Now;
                 }
-                else if (m_CurrentExceptionKeyClickCount == ExceptionKeyComboCount * 2)
+                else if (m_CurrentExceptionKeyClickCount >= ExceptionKeyComboCount * 2)
                 {
                     if ((DateTime.Now - m_ExceptionKeyFirstClickTime).TotalMilliseconds <= ExceptionKeyComboMilliseconds)
                         MainButton_Click(null, null);
