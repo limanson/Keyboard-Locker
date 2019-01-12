@@ -1,6 +1,6 @@
 # Keyboard-Locker
 
-[Download zip file here](https://limanson.github.io/Keyboard-Locker/Resources/Keyboard-Locker-Launcher.zip)
+[Download rar file here](https://limanson.github.io/Keyboard-Locker/Resources/Keyboard-Locker-Launcher.rar)
 <br>
 <br>
 <br>
