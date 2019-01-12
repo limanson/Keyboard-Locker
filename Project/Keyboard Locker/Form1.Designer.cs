@@ -20,12 +20,12 @@
             this.MainButton = new System.Windows.Forms.Button();
             this.WarningLabel = new System.Windows.Forms.Label();
             this.LicenseLabel = new System.Windows.Forms.Label();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.openWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1.SuspendLayout();
+            this.NotifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ContextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.OpenWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainButton
@@ -66,44 +66,44 @@
             this.LicenseLabel.Text = "Create by Villan © 2019";
             this.LicenseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // notifyIcon1
+            // NotifyIcon1
             // 
-            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Keyboard Locker";
-            this.notifyIcon1.Visible = true;
-            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            this.NotifyIcon1.ContextMenuStrip = this.ContextMenuStrip1;
+            this.NotifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon1.Icon")));
+            this.NotifyIcon1.Text = "Keyboard Locker";
+            this.NotifyIcon1.Visible = true;
+            this.NotifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon1_DoubleClick);
             // 
-            // contextMenuStrip1
+            // ContextMenuStrip1
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openWindowToolStripMenuItem,
-            this.lockToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(151, 70);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            this.ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenWindowToolStripMenuItem,
+            this.LockToolStripMenuItem,
+            this.ExitToolStripMenuItem});
+            this.ContextMenuStrip1.Name = "ContextMenuStrip1";
+            this.ContextMenuStrip1.Size = new System.Drawing.Size(151, 70);
+            this.ContextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip1_Opening);
             // 
-            // openWindowToolStripMenuItem
+            // OpenWindowToolStripMenuItem
             // 
-            this.openWindowToolStripMenuItem.Name = "openWindowToolStripMenuItem";
-            this.openWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.openWindowToolStripMenuItem.Text = "Open Window";
-            this.openWindowToolStripMenuItem.Click += new System.EventHandler(this.openWindowToolStripMenuItem_Click);
+            this.OpenWindowToolStripMenuItem.Name = "OpenWindowToolStripMenuItem";
+            this.OpenWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.OpenWindowToolStripMenuItem.Text = "Open Window";
+            this.OpenWindowToolStripMenuItem.Click += new System.EventHandler(this.OpenWindowToolStripMenuItem_Click);
             // 
-            // lockToolStripMenuItem
+            // LockToolStripMenuItem
             // 
-            this.lockToolStripMenuItem.Name = "lockToolStripMenuItem";
-            this.lockToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.lockToolStripMenuItem.Text = "Lock";
-            this.lockToolStripMenuItem.Click += new System.EventHandler(this.lockToolStripMenuItem_Click);
+            this.LockToolStripMenuItem.Name = "LockToolStripMenuItem";
+            this.LockToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.LockToolStripMenuItem.Text = "Lock";
+            this.LockToolStripMenuItem.Click += new System.EventHandler(this.LockToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
+            // ExitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ExitToolStripMenuItem.Text = "Exit";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -125,7 +125,7 @@
             this.Text = "Keyboard Locker";
             this.TopMost = true;
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.ContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,11 +134,11 @@
         private System.Windows.Forms.Button MainButton;
         private System.Windows.Forms.Label WarningLabel;
         private System.Windows.Forms.Label LicenseLabel;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.ToolStripMenuItem openWindowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lockToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.NotifyIcon NotifyIcon1;
+        private System.Windows.Forms.ToolStripMenuItem OpenWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuStrip1;
     }
 }
 

@@ -29,11 +29,13 @@ namespace Keyboard_Locker
 
         public delegate int HookHandlerDelegate(int nCode, IntPtr wparam, ref KBDLLHOOKSTRUCT lparam);
 
-        private HookHandlerDelegate proc = null;
-        private readonly string LockString = "Lock";
-        private readonly string UnLockString = "UnLock";
-        private readonly Color RedColor = Color.FromKnownColor(KnownColor.OrangeRed);
-        private readonly Color GreenColor = Color.FromKnownColor(KnownColor.ForestGreen);
+        private HookHandlerDelegate m_Proc = null;
+        private static readonly string LockString = "Lock";
+        private static readonly string UnLockString = "UnLock";
+        private static readonly Color RedColor = Color.FromKnownColor(KnownColor.OrangeRed);
+        private static readonly Color GreenColor = Color.FromKnownColor(KnownColor.ForestGreen);
+        private static readonly string StateMsgString = "Keyboard now is 「{0}」";
+        private static readonly string BackgroundMsgString = "Background running.";
         private bool m_IsLock = false;
 
         private int HookCallback(int nCode, IntPtr wparam, ref KBDLLHOOKSTRUCT lparam)
@@ -45,13 +47,17 @@ namespace Keyboard_Locker
         {
             InitializeComponent();
 
+            Icon icon = Properties.Resources.AppIcon;
+            this.Icon = icon;
+            NotifyIcon1.Icon = icon;
+
             MainButton.BackColor = m_IsLock ? GreenColor : RedColor;
 
-            proc = new HookHandlerDelegate(HookCallback);
+            m_Proc = new HookHandlerDelegate(HookCallback);
             using (Process curPro = Process.GetCurrentProcess())
             using (ProcessModule curMod = curPro.MainModule)
             {
-                SetWindowsHookExW(WH_KEYBOARD_LL, proc, GetModuleHandle(curMod.ModuleName), 0);
+                SetWindowsHookExW(WH_KEYBOARD_LL, m_Proc, GetModuleHandle(curMod.ModuleName), 0);
             }
         }
 
@@ -61,8 +67,8 @@ namespace Keyboard_Locker
             MainButton.Text = m_IsLock ? UnLockString : LockString;
             MainButton.BackColor = m_IsLock ? GreenColor : RedColor;
 
-            notifyIcon1.ShowBalloonTip(0, this.Text,
-                    string.Format("Keyboard now is 「{0}」", m_IsLock ? LockString : UnLockString),
+            NotifyIcon1.ShowBalloonTip(0, this.Text,
+                    string.Format(StateMsgString, m_IsLock ? LockString : UnLockString),
                     ToolTipIcon.Info);
 
             System.GC.Collect();
@@ -75,36 +81,36 @@ namespace Keyboard_Locker
                 this.Hide();
                 this.ShowInTaskbar = false;
                 this.WindowState = FormWindowState.Minimized;
-                notifyIcon1.Tag = string.Empty;
-                notifyIcon1.ShowBalloonTip(3000, this.Text,
-                    "Background running.",
+                NotifyIcon1.Tag = string.Empty;
+                NotifyIcon1.ShowBalloonTip(3000, this.Text,
+                    BackgroundMsgString,
                     ToolTipIcon.Info);
             }
         }
 
-        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             this.ShowForm();
         }
 
-        private void openWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.ShowForm();
         }
 
-        private void lockToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainButton_Click(sender, e);
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        private void ContextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            lockToolStripMenuItem.Text = m_IsLock ? UnLockString : LockString;
+            LockToolStripMenuItem.Text = m_IsLock ? UnLockString : LockString;
         }
 
         private void ShowForm()
