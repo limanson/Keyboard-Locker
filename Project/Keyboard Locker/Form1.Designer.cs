@@ -37,7 +37,7 @@
             this.MainButton.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainButton.Location = new System.Drawing.Point(70, 20);
             this.MainButton.Name = "MainButton";
-            this.MainButton.Size = new System.Drawing.Size(250, 100);
+            this.MainButton.Size = new System.Drawing.Size(270, 100);
             this.MainButton.TabIndex = 0;
             this.MainButton.Text = "Lock";
             this.MainButton.UseVisualStyleBackColor = true;
@@ -48,7 +48,7 @@
             this.WarningLabel.AutoSize = true;
             this.WarningLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.WarningLabel.Location = new System.Drawing.Point(40, 164);
+            this.WarningLabel.Location = new System.Drawing.Point(46, 164);
             this.WarningLabel.Name = "WarningLabel";
             this.WarningLabel.Size = new System.Drawing.Size(320, 18);
             this.WarningLabel.TabIndex = 1;
@@ -60,7 +60,7 @@
             this.LicenseLabel.AutoSize = true;
             this.LicenseLabel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LicenseLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LicenseLabel.Location = new System.Drawing.Point(106, 192);
+            this.LicenseLabel.Location = new System.Drawing.Point(120, 192);
             this.LicenseLabel.Name = "LicenseLabel";
             this.LicenseLabel.Size = new System.Drawing.Size(168, 14);
             this.LicenseLabel.TabIndex = 2;
@@ -111,11 +111,11 @@
             this.TipLabel.AutoSize = true;
             this.TipLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TipLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TipLabel.Location = new System.Drawing.Point(22, 135);
+            this.TipLabel.Location = new System.Drawing.Point(11, 136);
             this.TipLabel.Name = "TipLabel";
-            this.TipLabel.Size = new System.Drawing.Size(344, 18);
+            this.TipLabel.Size = new System.Drawing.Size(384, 18);
             this.TipLabel.TabIndex = 3;
-            this.TipLabel.Text = "Quickly triple press \"Ctrl\" to lock/unlock";
+            this.TipLabel.Text = "Quickly triple press \"Caps Lock\" to lock/unlock";
             this.TipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
@@ -123,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(384, 215);
+            this.ClientSize = new System.Drawing.Size(404, 215);
             this.Controls.Add(this.TipLabel);
             this.Controls.Add(this.LicenseLabel);
             this.Controls.Add(this.WarningLabel);

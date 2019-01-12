@@ -37,7 +37,7 @@ namespace Keyboard_Locker
         private static readonly string StateMsgString = "Keyboard now is 「{0}」";
         private static readonly string BackgroundMsgString = "Background running.";
 
-        private static readonly List<int> ExceptionKeyCodeList = new List<int>{ 162, 163 };
+        private static readonly List<int> ExceptionKeyCodeList = new List<int>{ 20 };
         private static readonly int ExceptionKeyComboCount = 3;
         private static readonly int ExceptionKeyComboMilliseconds = 1000;
         private int m_CurrentExceptionKeyClickCount = 0;
